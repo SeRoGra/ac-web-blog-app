@@ -1,3 +1,9 @@
+$(document).ready(function(){
+    if(window.localStorage.getItem('id') != null) {
+        window.location.href = "src/components/profile/profile.html";
+    }
+})
+
 $("#btnLogin").click(function () {
 
     var email = $("#email").val();
@@ -38,6 +44,7 @@ $("#btnLogin").click(function () {
                 console.log("BODY: " + JSON.stringify(response.body.username));
 
                 toastAlert(true, "Logueado correctamente");
+                setTimeout(function(){ window.location.href = "src/components/profile/profile.html"; }, 3000);
 
             }
         }).catch((error) => {

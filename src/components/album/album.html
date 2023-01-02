@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Blog APP</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='/ac-web-blog-app/src/components/album/album.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/sweetalert2@7.29.1/dist/sweetalert2.all.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <!--<h2>ALBUM</h2>-->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#saveAlbumModal">New
+        Album</button>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4" id="album-cards"></div>
+
+    <!-- Vertically centered modal -->
+    <div class="modal fade" id="saveAlbumModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">New Album</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="albumTitle" class="form-label">Title</label>
+                        <input type="title" class="form-control" id="formAlbumTitle">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                        id="btnCloseAlbumModal">Close</button>
+                    <button type="button" class="btn btn-primary" id="btnSaveAlbum">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--<div class="modal fade" id="claimsAlbumModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen-sm-down">
+            
+        </div>
+    </div>-->
+
+    <div id="claimsAlbumModal" class="modal">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container mt-4">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Username</th>
+                                    <th>Email</th>
+                                    <th>Write</th>
+                                    <th>Read</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tableClaimsToAlbums">
+                                <tr>
+                                    <td>John</td>
+                                    <td>john@example.com</td>
+                                    <td>
+                                        <div class="form-check form-switch" style="text-align: center;">
+                                            <input class="form-check-input" type="checkbox" role="switch"/>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-check form-switch" style="text-align: center;">
+                                            <input class="form-check-input" type="checkbox" role="switch"/>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Mary</td>
+                                    <td>mary@example.com</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>July</td>
+                                    <td>july@example.com</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src='/ac-web-blog-app/src/components/album/album.js'></script>
+
+</html>
